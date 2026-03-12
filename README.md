@@ -322,7 +322,7 @@ private async evaluateAchievement(userId: string, achievement: Achievement) {
 
 ### **1. Clone the Repository**
 ```bash
-git clone https://github.com/your-username/Optiverse.git
+git clone https://github.com/ThomasTran17/Optiverse.git
 cd Optiverse
 ```
 
