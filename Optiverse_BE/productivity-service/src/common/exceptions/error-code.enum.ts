@@ -1,0 +1,393 @@
+import { HttpStatus } from '@nestjs/common';
+
+export enum ErrorCode {
+  INVALID_CODE,
+  UNCATEGORIZED_CODE,
+  INVALID_USERNAME,
+  NULL_USERNAME,
+  NULL_PASSWORD,
+  INVALID_PASSWORD,
+  UNAUTHENTICATED,
+  UNAUTHORIZED,
+  NOT_FOUND,
+  SERVER_ERROR,
+  INVALID_DECKNAME,
+  MISSING_SECRET_KEY,
+  EMAIL_EXISTS,
+  VERIFY_TIME_OUT,
+  INVALID_OTP,
+  WATTING_TIME_OTP,
+  ACCOUNT_NOT_VERIFIED,
+  EMAIL_EXISTS_NOT_VERIFY,
+  CURRENT_PASSWORD_NOT_MATCH,
+  INVALID_TOKEN_GOOGLE,
+  ACCOUNT_IS_LOGOUT,
+  MISSING_ACCESS_TOKEN,
+  RESOURCE_NOT_FOUND,
+  PERMISSION_DENIED,
+  INVALID_RESOURCE_TYPE,
+  SHARE_NOT_FOUND,
+  UPDATE_SHARE_FAILED,
+  INVALID_OBJECT_ID,
+  // Achievement validation specific error codes
+  ACHIEVEMENT_INVALID_TITLE,
+  ACHIEVEMENT_INVALID_LOGIC_OPERATOR,
+  ACHIEVEMENT_INVALID_RULES_FORMAT,
+  ACHIEVEMENT_INVALID_RULE_CATEGORY,
+  ACHIEVEMENT_INVALID_RULE_FIELD,
+  ACHIEVEMENT_INVALID_RULE_VALUE_TYPE,
+  ACHIEVEMENT_INVALID_RULE_OPERATOR,
+  ACHIEVEMENT_MISSING_THRESHOLD,
+  ACHIEVEMENT_INVALID_DATE_VALUE,
+  ACHIEVEMENT_INVALID_NUMBER_VALUE,
+  ACHIEVEMENT_INVALID_BOOLEAN_VALUE,
+  ACHIEVEMENT_INVALID_VALUE,
+  ACHIEVEMENT_MISSING_USER_ID,
+  // Achievement duplicate title error code
+  ACHIEVEMENT_DUPLICATE_TITLE,
+  // User Inventory validation specific error codes
+  FRAME_TITLE_REQUIRED,
+  FRAME_TITLE_TOO_SHORT,
+  FRAME_TITLE_TOO_LONG,
+  FRAME_NOT_FOUND,
+  FRAME_INVALID_ID,
+  FRAME_UPLOAD_FAILED,
+  FRAME_INVALID_FILE_TYPE,
+  FRAME_FILE_TOO_LARGE,
+  // Marketplace specific error codes
+  INSUFFICIENT_BALANCE,
+  INVALID_REQUEST,
+  ALREADY_PURCHASED,
+  // Focus Room specific error codes
+  ROOM_NOT_FOUND,
+  INVALID_ROOM_ID,
+  ROOM_PASSWORD_INCORRECT,
+  ROOM_REQUIRES_PASSWORD,
+  ROOM_ACCESS_DENIED,
+  ROOM_JOIN_REQUEST_PENDING,
+  ROOM_USER_NOT_AUTHENTICATED,
+  DUPLICATE_RATING,
+  RATING_NOT_FOUND,
+  MARKETPLACE_BUY_LIMIT_EXCEEDED,
+}
+export const ErrorDetails = {
+  [ErrorCode.INVALID_CODE]: {
+    code: 1000,
+    message: 'Invalid code',
+    httpStatus: HttpStatus.INTERNAL_SERVER_ERROR,
+  },
+  [ErrorCode.UNCATEGORIZED_CODE]: {
+    code: 9999,
+    message: 'Uncategorized error',
+    httpStatus: HttpStatus.INTERNAL_SERVER_ERROR,
+  },
+  [ErrorCode.INVALID_USERNAME]: {
+    code: 1001,
+    message: 'Username must be between 6 - 25 characters',
+    httpStatus: HttpStatus.BAD_REQUEST,
+  },
+  [ErrorCode.NULL_USERNAME]: {
+    code: 1002,
+    message: 'Username must not be null',
+    httpStatus: HttpStatus.BAD_REQUEST,
+  },
+  [ErrorCode.NULL_PASSWORD]: {
+    code: 1003,
+    message: 'Password must not be null',
+    httpStatus: HttpStatus.BAD_REQUEST,
+  },
+  [ErrorCode.INVALID_PASSWORD]: {
+    code: 1004,
+    message:
+      'Password must have at least 8 characters with uppercase, lowercase, number, and special character',
+    httpStatus: HttpStatus.BAD_REQUEST,
+  },
+  [ErrorCode.UNAUTHENTICATED]: {
+    code: 1005,
+    message: 'Unauthenticated',
+    httpStatus: HttpStatus.UNAUTHORIZED,
+  },
+  [ErrorCode.UNAUTHORIZED]: {
+    code: 1006,
+    message: 'You do not have permission',
+    httpStatus: HttpStatus.FORBIDDEN,
+  },
+  [ErrorCode.NOT_FOUND]: {
+    code: 1007,
+    message: 'Resource not found',
+    httpStatus: HttpStatus.NOT_FOUND,
+  },
+  [ErrorCode.SERVER_ERROR]: {
+    code: 1008,
+    message: 'Internal server error',
+    httpStatus: HttpStatus.INTERNAL_SERVER_ERROR,
+  },
+  [ErrorCode.INVALID_DECKNAME]: {
+    code: 1009,
+    message: 'Invalid DeckName',
+    httpStatus: HttpStatus.BAD_REQUEST,
+  },
+  [ErrorCode.MISSING_SECRET_KEY]: {
+    code: 1010,
+    message: 'Missing JWT_SECRET in environment variables',
+    httpStatus: HttpStatus.INTERNAL_SERVER_ERROR,
+  },
+  [ErrorCode.EMAIL_EXISTS]: {
+    code: 1011,
+    message: 'Email exists & verified',
+    httpStatus: HttpStatus.BAD_REQUEST,
+  },
+  [ErrorCode.VERIFY_TIME_OUT]: {
+    code: 1012,
+    message: 'Email verify is time out',
+    httpStatus: HttpStatus.BAD_REQUEST,
+  },
+  [ErrorCode.INVALID_OTP]: {
+    code: 1013,
+    message: 'Invalid OTP',
+    httpStatus: HttpStatus.BAD_REQUEST,
+  },
+  [ErrorCode.WATTING_TIME_OTP]: {
+    code: 1014,
+    message: 'Watting for next send OTP',
+    httpStatus: HttpStatus.BAD_REQUEST,
+  },
+  [ErrorCode.ACCOUNT_NOT_VERIFIED]: {
+    code: 1015,
+    message: 'Account is unverify',
+    httpStatus: HttpStatus.BAD_REQUEST,
+  },
+  [ErrorCode.EMAIL_EXISTS_NOT_VERIFY]: {
+    code: 1016,
+    message: 'Email is exits but not verify',
+    httpStatus: HttpStatus.BAD_REQUEST,
+  },
+  [ErrorCode.CURRENT_PASSWORD_NOT_MATCH]: {
+    code: 1017,
+    message: 'Current password not match',
+    httpStatus: HttpStatus.BAD_REQUEST,
+  },
+  [ErrorCode.INVALID_TOKEN_GOOGLE]: {
+    code: 1018,
+    message: 'Invalid token google',
+    httpStatus: HttpStatus.BAD_REQUEST,
+  },
+  [ErrorCode.ACCOUNT_IS_LOGOUT]: {
+    code: 1019,
+    message: 'Account is log out',
+    httpStatus: HttpStatus.BAD_REQUEST,
+  },
+  [ErrorCode.MISSING_ACCESS_TOKEN]: {
+    code: 1020,
+    message: 'Missing access token',
+    httpStatus: HttpStatus.BAD_REQUEST,
+  },
+  [ErrorCode.RESOURCE_NOT_FOUND]: {
+    code: 1021,
+    message: 'Resource not found',
+    httpStatus: HttpStatus.NOT_FOUND,
+  },
+  [ErrorCode.PERMISSION_DENIED]: {
+    code: 1022,
+    message: 'You do not have permission to share this resource',
+    httpStatus: HttpStatus.FORBIDDEN,
+  },
+  [ErrorCode.INVALID_RESOURCE_TYPE]: {
+    code: 1023,
+    message: 'Invalid resource type',
+    httpStatus: HttpStatus.BAD_REQUEST,
+  },
+  [ErrorCode.SHARE_NOT_FOUND]: {
+    code: 1024,
+    message: 'Share not found',
+    httpStatus: HttpStatus.NOT_FOUND,
+  },
+  [ErrorCode.UPDATE_SHARE_FAILED]: {
+    code: 1025,
+    message: 'Failed to update share',
+    httpStatus: HttpStatus.INTERNAL_SERVER_ERROR,
+  },
+  [ErrorCode.INVALID_OBJECT_ID]: {
+    code: 1026,
+    message: 'Invalid ObjectId format',
+    httpStatus: HttpStatus.BAD_REQUEST,
+  },
+  // Achievement validation specific error details
+  [ErrorCode.ACHIEVEMENT_INVALID_TITLE]: {
+    code: 1100,
+    message: 'Invalid achievement title',
+    httpStatus: HttpStatus.BAD_REQUEST,
+  },
+  [ErrorCode.ACHIEVEMENT_INVALID_LOGIC_OPERATOR]: {
+    code: 1101,
+    message: 'Invalid logic operator',
+    httpStatus: HttpStatus.BAD_REQUEST,
+  },
+  [ErrorCode.ACHIEVEMENT_INVALID_RULES_FORMAT]: {
+    code: 1102,
+    message: 'Invalid rules format. Must be an array of rules',
+    httpStatus: HttpStatus.BAD_REQUEST,
+  },
+  [ErrorCode.ACHIEVEMENT_INVALID_RULE_CATEGORY]: {
+    code: 1103,
+    message: 'Invalid rule category',
+    httpStatus: HttpStatus.BAD_REQUEST,
+  },
+  [ErrorCode.ACHIEVEMENT_INVALID_RULE_FIELD]: {
+    code: 1104,
+    message: 'Invalid rule field',
+    httpStatus: HttpStatus.BAD_REQUEST,
+  },
+  [ErrorCode.ACHIEVEMENT_INVALID_RULE_VALUE_TYPE]: {
+    code: 1105,
+    message: 'Invalid rule value type',
+    httpStatus: HttpStatus.BAD_REQUEST,
+  },
+  [ErrorCode.ACHIEVEMENT_INVALID_RULE_OPERATOR]: {
+    code: 1106,
+    message: 'Invalid rule operator',
+    httpStatus: HttpStatus.BAD_REQUEST,
+  },
+  [ErrorCode.ACHIEVEMENT_MISSING_THRESHOLD]: {
+    code: 1107,
+    message: 'Missing or invalid threshold for STRING/NUMBER type',
+    httpStatus: HttpStatus.BAD_REQUEST,
+  },
+  [ErrorCode.ACHIEVEMENT_INVALID_DATE_VALUE]: {
+    code: 1108,
+    message: 'Invalid date value in rule',
+    httpStatus: HttpStatus.BAD_REQUEST,
+  },
+  [ErrorCode.ACHIEVEMENT_INVALID_NUMBER_VALUE]: {
+    code: 1109,
+    message: 'Invalid number value in rule',
+    httpStatus: HttpStatus.BAD_REQUEST,
+  },
+  [ErrorCode.ACHIEVEMENT_INVALID_BOOLEAN_VALUE]: {
+    code: 1110,
+    message: 'Invalid boolean value in rule. Must be true/false',
+    httpStatus: HttpStatus.BAD_REQUEST,
+  },
+  [ErrorCode.ACHIEVEMENT_INVALID_VALUE]: {
+    code: 1111,
+    message: 'Invalid value in rule',
+    httpStatus: HttpStatus.BAD_REQUEST,
+  },
+  [ErrorCode.ACHIEVEMENT_MISSING_USER_ID]: {
+    code: 1112,
+    message: 'Missing user id for evaluation',
+    httpStatus: HttpStatus.BAD_REQUEST,
+  },
+  [ErrorCode.ACHIEVEMENT_DUPLICATE_TITLE]: {
+    code: 1113,
+    message: 'Achievement title already exists',
+    httpStatus: HttpStatus.BAD_REQUEST,
+  },
+  // User Inventory validation specific error details
+  [ErrorCode.FRAME_TITLE_REQUIRED]: {
+    code: 1200,
+    message: 'Frame title is required',
+    httpStatus: HttpStatus.BAD_REQUEST,
+  },
+  [ErrorCode.FRAME_TITLE_TOO_SHORT]: {
+    code: 1201,
+    message: 'Frame title must be at least 2 characters long',
+    httpStatus: HttpStatus.BAD_REQUEST,
+  },
+  [ErrorCode.FRAME_TITLE_TOO_LONG]: {
+    code: 1202,
+    message: 'Frame title must not exceed 100 characters',
+    httpStatus: HttpStatus.BAD_REQUEST,
+  },
+  [ErrorCode.FRAME_NOT_FOUND]: {
+    code: 1203,
+    message: 'Frame not found',
+    httpStatus: HttpStatus.NOT_FOUND,
+  },
+  [ErrorCode.FRAME_INVALID_ID]: {
+    code: 1204,
+    message: 'Invalid frame ID format',
+    httpStatus: HttpStatus.BAD_REQUEST,
+  },
+  [ErrorCode.FRAME_UPLOAD_FAILED]: {
+    code: 1205,
+    message: 'Failed to upload frame icon',
+    httpStatus: HttpStatus.INTERNAL_SERVER_ERROR,
+  },
+  [ErrorCode.FRAME_INVALID_FILE_TYPE]: {
+    code: 1206,
+    message: 'Invalid file type. Only images are allowed',
+    httpStatus: HttpStatus.BAD_REQUEST,
+  },
+  [ErrorCode.FRAME_FILE_TOO_LARGE]: {
+    code: 1207,
+    message: 'File size too large. Maximum size is 5MB',
+    httpStatus: HttpStatus.BAD_REQUEST,
+  },
+  [ErrorCode.INSUFFICIENT_BALANCE]: {
+    code: 1208,
+    message: 'Insufficient balance to purchase this item',
+    httpStatus: HttpStatus.BAD_REQUEST,
+  },
+  [ErrorCode.INVALID_REQUEST]: {
+    code: 1209,
+    message: 'Invalid request',
+    httpStatus: HttpStatus.BAD_REQUEST,
+  },
+  [ErrorCode.ALREADY_PURCHASED]: {
+    code: 1210,
+    message: 'You have already purchased this item',
+    httpStatus: HttpStatus.BAD_REQUEST,
+  },
+  // Focus Room error details
+  [ErrorCode.ROOM_NOT_FOUND]: {
+    code: 1200,
+    message: 'Room not found',
+    httpStatus: HttpStatus.NOT_FOUND,
+  },
+  [ErrorCode.INVALID_ROOM_ID]: {
+    code: 1201,
+    message: 'Invalid room ID',
+    httpStatus: HttpStatus.BAD_REQUEST,
+  },
+  [ErrorCode.ROOM_PASSWORD_INCORRECT]: {
+    code: 1202,
+    message: 'Password không chính xác',
+    httpStatus: HttpStatus.BAD_REQUEST,
+  },
+  [ErrorCode.ROOM_REQUIRES_PASSWORD]: {
+    code: 1203,
+    message: 'Room yêu cầu password hoặc gửi yêu cầu tham gia',
+    httpStatus: HttpStatus.BAD_REQUEST,
+  },
+  [ErrorCode.ROOM_ACCESS_DENIED]: {
+    code: 1204,
+    message: 'Bạn cần gửi yêu cầu tham gia và chờ phê duyệt từ admin',
+    httpStatus: HttpStatus.FORBIDDEN,
+  },
+  [ErrorCode.ROOM_JOIN_REQUEST_PENDING]: {
+    code: 1205,
+    message: 'Đã gửi yêu cầu tham gia, chờ phê duyệt từ admin',
+    httpStatus: HttpStatus.BAD_REQUEST,
+  },
+  [ErrorCode.ROOM_USER_NOT_AUTHENTICATED]: {
+    code: 1206,
+    message: 'User not authenticated',
+    httpStatus: HttpStatus.UNAUTHORIZED,
+  },
+  [ErrorCode.DUPLICATE_RATING]: {
+    code: 1211,
+    message: 'You have already rated this item. Please update your rating instead.',
+    httpStatus: HttpStatus.BAD_REQUEST,
+  },
+  [ErrorCode.RATING_NOT_FOUND]: {
+    code: 1212,
+    message: 'Rating not found',
+    httpStatus: HttpStatus.NOT_FOUND,
+  },
+  [ErrorCode.MARKETPLACE_BUY_LIMIT_EXCEEDED]: {
+    code: 1213,
+    message: 'You need to upgrade your package to be able to buy more',
+    httpStatus: HttpStatus.BAD_REQUEST,
+  },
+};

@@ -1,0 +1,190 @@
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <title>{{subject}}</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        color: #333;
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #f5f5f5;
+      }
+      .container {
+        background-color: white;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      }
+      .header {
+        background: linear-gradient(135deg, #21b4ca 0%, #1a8fa0 100%);
+        color: white;
+        padding: 20px;
+        text-align: center;
+      }
+      .header h2 {
+        margin: 0;
+        font-size: 24px;
+      }
+      .reminder-badge {
+        background-color: #ff6b6b;
+        color: white;
+        padding: 5px 15px;
+        border-radius: 20px;
+        font-size: 12px;
+        display: inline-block;
+        margin-top: 10px;
+        font-weight: bold;
+      }
+      .content {
+        padding: 30px;
+      }
+      .event-title {
+        font-size: 22px;
+        color: #21b4ca;
+        margin-bottom: 15px;
+        font-weight: bold;
+      }
+      .event-details {
+        background-color: #f8f9fa;
+        border-left: 4px solid #21b4ca;
+        padding: 15px;
+        margin: 20px 0;
+      }
+      .detail-item {
+        margin: 10px 0;
+        display: flex;
+        align-items: flex-start;
+      }
+      .detail-icon {
+        color: #21b4ca;
+        margin-right: 10px;
+        font-weight: bold;
+      }
+      .detail-text {
+        flex: 1;
+      }
+      .time-info {
+        background-color: #fff3cd;
+        border: 2px solid #ffc107;
+        border-radius: 6px;
+        padding: 15px;
+        margin: 20px 0;
+        text-align: center;
+      }
+      .time-info strong {
+        color: #ff6b6b;
+        font-size: 18px;
+      }
+      .action-button {
+        display: inline-block;
+        background-color: #21b4ca;
+        color: white;
+        padding: 12px 30px;
+        text-decoration: none;
+        border-radius: 5px;
+        margin-top: 20px;
+        font-weight: bold;
+        text-align: center;
+      }
+      .action-button:hover {
+        background-color: #1a8fa0;
+      }
+      .footer {
+        text-align: center;
+        padding: 20px;
+        background-color: #f8f9fa;
+        font-size: 12px;
+        color: #777;
+      }
+      .divider {
+        border-bottom: 1px solid #e0e0e0;
+        margin: 20px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h2>🔔 Event Reminder</h2>
+        <span class="reminder-badge">STARTING SOON</span>
+      </div>
+      
+      <div class="content">
+        <div class="time-info">
+          ⏰ Your event will start in <strong>30 minutes</strong>
+        </div>
+
+        <div class="event-title">
+          📅 {{eventTitle}}
+        </div>
+
+        <div class="event-details">
+          <div class="detail-item">
+            <span class="detail-icon">🕒</span>
+            <div class="detail-text">
+              <strong>Time:</strong><br>
+              {{startTime}}
+            </div>
+          </div>
+
+          {{#if description}}
+          <div class="divider"></div>
+          <div class="detail-item">
+            <span class="detail-icon">📝</span>
+            <div class="detail-text">
+              <strong>Description:</strong><br>
+              {{description}}
+            </div>
+          </div>
+          {{/if}}
+
+          {{#if location}}
+          <div class="divider"></div>
+          <div class="detail-item">
+            <span class="detail-icon">📍</span>
+            <div class="detail-text">
+              <strong>Location:</strong><br>
+              {{location}}
+            </div>
+          </div>
+          {{/if}}
+
+          {{#if guests}}
+          <div class="divider"></div>
+          <div class="detail-item">
+            <span class="detail-icon">👥</span>
+            <div class="detail-text">
+              <strong>Guests:</strong><br>
+              {{guests}}
+            </div>
+          </div>
+          {{/if}}
+        </div>
+
+        <p style="text-align: center; margin-top: 30px;">
+          <strong>🎯 Get ready for your event!</strong>
+        </p>
+
+        {{#if actionUrl}}
+        <div style="text-align: center;">
+          <a href="{{actionUrl}}" class="action-button">
+            View Event Details
+          </a>
+        </div>
+        {{/if}}
+      </div>
+
+      <div class="footer">
+        <p>© {{year}} OptiVerse. All rights reserved.</p>
+        <p>This is an automated reminder email, please do not reply.</p>
+        <p style="margin-top: 10px; font-size: 11px;">
+          💡 Tip: You can customize reminder settings in your account preferences
+        </p>
+      </div>
+    </div>
+  </body>
+</html>

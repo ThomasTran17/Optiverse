@@ -1,0 +1,31 @@
+api:
+  insecure: true
+
+providers:
+  docker: {}
+
+entryPoints:
+  web:
+    address: ":81"
+  traefik:
+    address: ":9876"
+  grpc:
+    address: ":50051"
+
+http:
+  middlewares:
+    auth:
+      forwardAuth:
+        address: "http://core-service:3000/auth/verify"
+        trustForwardHeader: true
+        authResponseHeaders:
+          - "X-User-Info"
+    ratelimit:
+      rateLimit:
+        average: 100
+        burst: 200
+    compress:
+      compress: {}
+
+log:
+  level: DEBUG

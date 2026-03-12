@@ -1,0 +1,110 @@
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <title>{{subject}}</title>
+    <style>
+      body {
+        font-family: 'Lucida Grande', 'Lucida Sans', 'Lucida Sans Unicode', sans-serif, Arial, Helvetica, Verdana, sans-serif;
+        font-weight: 300;
+        font-size: 14px;
+        line-height: 18px;
+        background-color: #ffffff;
+        margin: 0;
+        padding: 0;
+        color: #000000;
+      }
+      .container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 40px 20px;
+      }
+      .header {
+        text-align: left;
+        padding-bottom: 20px;
+      }
+      .logo {
+        margin-bottom: 20px;
+      }
+      .logo svg {
+        width: 30px;
+        height: 30px;
+      }
+      h1 {
+        font-size: 16px;
+        font-weight: 500;
+        margin: 0;
+      }
+      .greeting {
+        font-size: 16px;
+        font-weight: 500;
+        margin-bottom: 15px;
+      }
+      .content {
+        margin: 15px 0;
+      }
+      .message {
+        background-color: #f8f8f8;
+        border-radius: 4px;
+        padding: 20px;
+        margin: 15px 0;
+      }
+      .action {
+        margin: 25px 0;
+      }
+      .button {
+        display: inline-block;
+        background-color: #000000;
+        color: #ffffff;
+        text-decoration: none;
+        padding: 10px 20px;
+        border-radius: 4px;
+        font-size: 14px;
+      }
+      .footer {
+        margin-top: 30px;
+        font-size: 12px;
+        color: #666666;
+        border-top: 1px solid #eeeeee;
+        padding-top: 15px;
+      }
+      .footer p {
+        margin: 5px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <div class="logo">
+          <svg viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="15" cy="15" r="15" fill="#000000"/>
+            <path d="M15 7.5C10.86 7.5 7.5 10.86 7.5 15C7.5 19.14 10.86 22.5 15 22.5C19.14 22.5 22.5 19.14 22.5 15C22.5 10.86 19.14 7.5 15 7.5ZM15 21C11.69 21 9 18.31 9 15C9 11.69 11.69 9 15 9C18.31 9 21 11.69 21 15C21 18.31 18.31 21 15 21Z" fill="white"/>
+            <circle cx="15" cy="15" r="3.75" fill="white"/>
+          </svg>
+        </div>
+      </div>
+      
+      <div class="greeting">
+        Hello, {{#if name}}{{name}}{{else}}there{{/if}}
+      </div>
+      
+      <div class="message">
+        <div class="content">
+          {{content}}
+        </div>
+      </div>
+      
+      <div class="action">
+        <a href="https://optiverse.io.vn" class="button">
+          Visit OptiVerse
+        </a>
+      </div>
+      
+      <div class="footer">
+        <p>© {{year}} OptiVerse. All rights reserved.</p>
+        <p>This is an automated message. Please do not reply to this email.</p>
+      </div>
+    </div>
+  </body>
+</html>

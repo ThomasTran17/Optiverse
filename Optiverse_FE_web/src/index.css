@@ -1,0 +1,307 @@
+body {
+  font-family: var(--theme-font), 'NotoSans-Regular', 'Inter', sans-serif;
+}
+@layer base {
+  button,
+  [role='button'],
+  .btn {
+    @apply cursor-pointer;
+  }
+}
+
+body.font-pixel {
+  letter-spacing: 0.2px;
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px white inset !important;
+  -webkit-text-fill-color: #000 !important; /* màu chữ */
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+/* Custom scrollbar cho FolderNote */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+  background: transparent;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 4px;
+}
+.custom-scrollbar:hover::-webkit-scrollbar-thumb {
+  background: #a0aec0;
+}
+.custom-scrollbar-2::-webkit-scrollbar {
+  width: 50%;
+  height: 4px;
+  background: transparent;
+}
+.custom-scrollbar-2::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 500px;
+}
+.custom-scrollbar-2:hover::-webkit-scrollbar-thumb {
+  background: #a0aec0;
+}
+
+/* Custom scrollbar cho Blog List */
+.blog-list-scrollbar::-webkit-scrollbar {
+  width: 8px;
+  background: transparent;
+}
+.blog-list-scrollbar::-webkit-scrollbar-thumb {
+  background: #21b4ca;
+  border-radius: 4px;
+}
+.blog-list-scrollbar:hover::-webkit-scrollbar-thumb {
+  background: #1a9bb0;
+}
+.blog-list-scrollbar::-webkit-scrollbar-track {
+  background: rgba(33, 180, 202, 0.1);
+  border-radius: 4px;
+}
+
+/* Custom scrollbar rõ ràng hơn */
+.custom-scrollbar-3::-webkit-scrollbar {
+  width: 6px;
+  height: 10%;
+  background-color: #21b4ca;
+}
+.custom-scrollbar-3::-webkit-scrollbar-thumb {
+  background: #21b4ca;
+  border-radius: 4px;
+}
+.custom-scrollbar-3:hover::-webkit-scrollbar-thumb {
+  background: #21b4ca;
+}
+.custom-scrollbar-3::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+  border-radius: 4px;
+}
+
+.custom-scrollbar-4::-webkit-scrollbar {
+  width: 6px;
+  height: 5%;
+  background-color: #225058;
+}
+.custom-scrollbar-4::-webkit-scrollbar-thumb {
+  background: #225058;
+  border-radius: 4px;
+}
+.custom-scrollbar-4:hover::-webkit-scrollbar-thumb {
+  background: #225058;
+}
+.custom-scrollbar-4::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+}
+
+/* Fix for black images in blog posts */
+img {
+  filter: none !important;
+  opacity: 1 !important;
+  background-color: transparent !important;
+  mix-blend-mode: normal !important;
+}
+
+/* Ensure images display correctly in dark mode */
+.dark img {
+  filter: none !important;
+  opacity: 1 !important;
+}
+
+/* Hide default checkbox */
+input[type='checkbox'] {
+  appearance: none;
+  -webkit-appearance: none; /* For Safari */
+  width: 20px;
+  height: 20px;
+  border: 2px solid #21b4ca; /* Border color for unchecked state */
+  border-radius: 4px;
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+  background-color: white; /* Background color for unchecked state */
+}
+
+/* Style the checked state */
+input[type='checkbox']:checked {
+  background-color: white; /* Background color for checked state */
+  border-color: #21b4ca; /* Border color for checked state */
+}
+
+/* Create a custom checkmark using a pseudo-element */
+input[type='checkbox']:checked::before {
+  content: '\2713'; /* Unicode checkmark character */
+  font-size: 16px;
+  color: #21b4ca; /* Color of the checkmark */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Hide scrollbar but keep scrolling functionality */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+/**
+ * Copyright 2023 LiveKit, Inc.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+
+
+.light {
+  background: white;
+}
+
+.roomContainer {
+  height: 100vh;
+}
+
+.error {
+  color: red;
+}
+
+.lk-grid-layout-wrapper {
+  height: 100%;
+}
+
+.lk-focus-layout {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family:
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
+    'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family:
+    source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+.custom-radius {
+  border-top-right-radius: 0.5rem !important;
+  border-bottom-right-radius: 0.5rem !important;
+  border-top-left-radius: 0.5rem !important;
+  border-bottom-left-radius: 0.5rem !important;
+  border: none !important;
+  overflow: hidden;
+}
+
+.lk-disconnect-button {
+  border-top-right-radius: 0.5rem !important;
+  border-bottom-right-radius: 0.5rem !important;
+}
+
+.lk-grid-layout {
+  padding-right: 0 !important;
+}
+
+.custom-radius-full {
+  border-radius: 50% !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px !important;
+  height: 44px !important;
+  overflow: hidden;
+}
+
+.custom-radius-full button {
+  width: 44px !important;
+  height: 44px !important;
+}
+
+.custom-radius-full-leave button {
+  width: 44px !important;
+  height: 44px !important;
+  border-radius: 50% !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px !important;
+  height: 44px !important;
+  overflow: hidden;
+}
+.lk-button.lk-button-menu {
+  background-color: black;
+  border-left: gray 0.5px solid;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
+.scrollbar-hide {
+  -ms-overflow-style: none; /* IE và Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.lk-participant-metadata-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  border-radius: 9999px !important; /* Viên thuốc */
+  background: rgba(0, 0, 0, 0.4); /* Nền mờ */
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1;
+  backdrop-filter: blur(6px);
+}
+
+.lk-participant-metadata-item.lk-connection-quality {
+  border-radius: 2px !important;
+  border: none !important;
+}
+
+/* Blog Report Modal Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.2s ease-out;
+}
+
+.animate-slideUp {
+  animation: slideUp 0.3s ease-out;
+}
