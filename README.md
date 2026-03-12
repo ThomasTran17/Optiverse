@@ -580,12 +580,30 @@ optiverse/
 
 ## 📊 Key Metrics & Performance
 
+### **Verified Metrics** ✅
+- **Real-time Update Latency**: ~300ms
+  - Source: Debounce delay in `socket.service.ts` (updateDelay = 300)
+  - Based on: Production code implementation
+
+### **Estimated Metrics** (Benchmarking Recommended) ⚠️
 - **Frontend Bundle Size**: ~2.5MB (gzipped)
+  - Estimate based on: Heavy dependencies (React 19, MUI 7, Three.js, LiveKit)
+  - **Action**: Run `npm run build` to verify actual size
+  
 - **API Response Time**: <200ms (P99)
-- **Real-time Update Latency**: <300ms
-- **Database Query Optimization**: Indexed collections, leaderboard caching
+  - Estimate based on: NestJS microservices + indexed MongoDB queries
+  - **Actual**: Depends on server specs, network, and database optimization
+  - **Action**: Use load testing tools (k6, Artillery, Apache JMeter)
+
 - **Concurrent Users Supported**: 1000+ per service instance
+  - Estimate based on: Node.js typical capacity + microservices scaling
+  - **Actual**: Varies based on server resources and usage patterns
+  - **Action**: Conduct load testing in your deployment environment
+
 - **Achievement Evaluation**: 40+ achievements in <500ms
+  - Estimate based on: Composite pattern evaluator with caching
+  - **Actual**: Depends on database indexes and server performance
+  - **Action**: Monitor productivity-service logs for actual evaluation times
 
 ---
 
